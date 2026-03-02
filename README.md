@@ -55,140 +55,86 @@ Add to your `~/.claude/settings.json`:
 |---------|---------|
 | `/docassist` | Main entry point - get help choosing the right document |
 
-### Project Management Commands
+### Project Management Documents
 
-| Command | Documents | When to Use |
-|---------|-----------|-------------|
-| `/project-management-docs` | Charter, Business Case, WBS, Schedule, Risk Register, RACI, Status Report, Issue Log, Change Request, Lessons Learned, Closure Report | Managing projects from initiation to closure |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/project-charter` | Project Charter | Formal authorization, objectives, scope |
+| `/business-case` | Business Case | Investment justification, ROI analysis |
+| `/stakeholder-register` | Stakeholder Register | Map stakeholders, roles, influence |
+| `/work-breakdown-structure` | WBS | Hierarchical decomposition of work |
+| `/project-schedule` | Project Schedule | Timeline, dependencies, milestones |
+| `/risk-register` | Risk Register | Track risks, likelihood, impact, mitigation |
+| `/raci-matrix` | RACI Matrix | Clarify roles (Responsible, Accountable, Consulted, Informed) |
+| `/communication-plan` | Communication Plan | Who needs what info, when, how |
+| `/status-report` | Status Report | Regular progress updates |
+| `/issue-log` | Issue Log | Track problems and resolution status |
+| `/change-request` | Change Request | Formal requests to modify scope/schedule/budget |
+| `/lessons-learned` | Lessons Learned | What went well, what didn't, recommendations |
+| `/project-closure-report` | Closure Report | Final status, deliverables, handoff |
 
-### Product Management Commands
+### Product Strategy Documents
 
-| Command | Documents | When to Use |
-|---------|-----------|-------------|
-| `/pm-strategy-docs` | Vision, Strategy, Roadmap, OKRs | Strategic planning, goal setting |
-| `/pm-discovery-docs` | PRD, User Stories, JTBD, Personas, Journey Map | Defining what to build |
-| `/pm-research-docs` | Market Research, User Research, Opportunity Assessment | Research & validation |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/product-vision` | Product Vision | Long-term direction (3-5 years) |
+| `/product-strategy` | Product Strategy | How to achieve vision, competitive differentiation |
+| `/product-roadmap` | Product Roadmap | Timeline of features/releases, priorities |
+| `/okrs` | OKRs | Measurable goals and success metrics |
 
-### Marketing Commands
+### Product Discovery Documents
 
-| Command | Documents | When to Use |
-|---------|-----------|-------------|
-| `/marketing-positioning-docs` | Positioning, Messaging, Value Prop, Brand Guidelines | Defining market position |
-| `/marketing-content-docs` | Content Strategy, Campaign Brief, Battlecard, Case Study | Content & campaigns |
-| `/marketing-launch-docs` | GTM Strategy, Launch Checklist, Datasheet, Sales Kit | Launch execution |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/prd` | PRD | Detailed feature specifications |
+| `/user-stories` | User Stories | Requirements in "As a... I want... So that..." format |
+| `/jobs-to-be-done` | JTBD | Customer motivations and desired outcomes |
+| `/user-personas` | User Personas | Archetypes of target users |
+| `/customer-journey-map` | Journey Map | End-to-end experience across touchpoints |
 
-### Cross-Functional Commands
+### Product Research Documents
 
-| Command | Documents | When to Use |
-|---------|-----------|-------------|
-| `/bridge-docs` | Product Brief, Release Notes, FAQ, Demo Script | Documents for both PM & Marketing |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/market-research` | Market Research | Competitive analysis, market size, trends |
+| `/user-research-report` | User Research | Interview findings, survey results, insights |
+| `/opportunity-assessment` | Opportunity Assessment | Business case for pursuing a feature/product |
 
-## Document Reference
+### Marketing Positioning Documents
 
-### Project Management Documents (`/project-management-docs`)
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/positioning-statement` | Positioning Statement | Market position, key benefits |
+| `/messaging-framework` | Messaging Framework | Key messages by audience |
+| `/value-proposition-canvas` | Value Prop Canvas | Customer pains/gains mapped to features |
+| `/brand-guidelines` | Brand Guidelines | Visual identity, voice, tone |
 
-#### Initiation Phase
+### Marketing Content Documents
 
-| Document | Purpose |
-|----------|---------|
-| **Project Charter** | Formal authorization, objectives, scope, stakeholders |
-| **Business Case** | Justification for the project, ROI analysis |
-| **Stakeholder Register** | Who's involved, roles, influence, communication needs |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/content-strategy` | Content Strategy | Content pillars, channels, editorial calendar |
+| `/campaign-brief` | Campaign Brief | Goals, audience, channels, budget, timeline |
+| `/competitor-battlecard` | Competitor Battlecard | Feature comparisons, objection handling |
+| `/case-study-brief` | Case Study Brief | Customer success story structure |
 
-#### Planning Phase
+### Marketing Launch Documents
 
-| Document | Purpose |
-|----------|---------|
-| **Work Breakdown Structure (WBS)** | Hierarchical decomposition of work |
-| **Project Schedule** | Timeline, dependencies, milestones |
-| **Budget** | Cost estimates, contingencies |
-| **Risk Register** | Risks, likelihood, impact, mitigation |
-| **RACI Matrix** | Who is Responsible, Accountable, Consulted, Informed |
-| **Communication Plan** | Who needs what info, when, how |
+| Command | Document | Purpose |
+|---------|----------|---------|
+| `/gtm-strategy` | GTM Strategy | Launch plan, pricing, channels |
+| `/launch-checklist` | Launch Checklist | Cross-functional readiness checklist |
+| `/product-datasheet` | Product Datasheet | Feature summary, specs, use cases |
+| `/sales-enablement-kit` | Sales Enablement Kit | Pitch decks, objection handling, demo scripts |
 
-#### Execution & Control Phase
+### Bridge Documents (Cross-Functional)
 
-| Document | Purpose |
-|----------|---------|
-| **Status Report** | Regular progress updates |
-| **Issue Log** | Problems, ownership, resolution status |
-| **Change Request** | Formal requests to modify scope/schedule/budget |
-
-#### Closure Phase
-
-| Document | Purpose |
-|----------|---------|
-| **Lessons Learned** | What went well, what didn't, recommendations |
-| **Project Closure Report** | Final status, deliverables, handoff |
-
-### Product Management Documents
-
-#### Strategy & Planning (`/pm-strategy-docs`)
-
-| Document | Purpose | Time Horizon |
-|----------|---------|--------------|
-| **Product Vision** | Long-term direction, market positioning | 3-5 years |
-| **Product Strategy** | How to achieve vision, competitive differentiation | 1-2 years |
-| **Product Roadmap** | Timeline of features/releases, priorities | 6-12 months |
-| **OKRs** | Measurable goals and success metrics | Quarterly |
-
-#### Discovery & Definition (`/pm-discovery-docs`)
-
-| Document | Purpose |
-|----------|---------|
-| **PRD** | Detailed feature specs, user stories, acceptance criteria |
-| **User Stories** | Individual requirements in "As a... I want... So that..." format |
-| **JTBD** | Customer motivations and desired outcomes |
-| **User Personas** | Archetypes of target users with goals, pain points |
-| **Customer Journey Map** | End-to-end experience across touchpoints |
-
-#### Research & Validation (`/pm-research-docs`)
-
-| Document | Purpose |
-|----------|---------|
-| **Market Research** | Competitive analysis, market size, trends |
-| **User Research Report** | Interview findings, survey results, usability insights |
-| **Opportunity Assessment** | Business case for pursuing a feature/product |
-
-### Marketing Documents
-
-#### Positioning & Messaging (`/marketing-positioning-docs`)
-
-| Document | Purpose |
-|----------|---------|
-| **Positioning Statement** | How product is unique, target market, key benefits |
-| **Messaging Framework** | Key messages by audience, tone guidelines |
-| **Value Proposition Canvas** | Customer pains/gains mapped to product features |
-| **Brand Guidelines** | Visual identity, voice, tone |
-
-#### Content & Campaigns (`/marketing-content-docs`)
-
-| Document | Purpose |
-|----------|---------|
-| **Content Strategy** | Content pillars, channels, editorial calendar |
-| **Campaign Brief** | Goals, audience, channels, budget, timeline |
-| **Competitor Battlecard** | Feature comparisons, objection handling |
-| **Case Study Brief** | Customer success story structure |
-
-#### Launch & GTM (`/marketing-launch-docs`)
-
-| Document | Purpose |
-|----------|---------|
-| **GTM Strategy** | Launch plan, pricing, channels, sales enablement |
-| **Launch Checklist** | Cross-functional readiness checklist |
-| **Product Datasheet** | Feature summary, specs, use cases (1-pager) |
-| **Sales Enablement Kit** | Pitch decks, objection handling, demo scripts |
-
-### Bridge Documents (`/bridge-docs`)
-
-Documents that serve both Product Management and Marketing:
-
-| Document | PM Use | Marketing Use |
-|----------|--------|---------------|
-| **Product Brief** | Feature summary for stakeholders | Messaging foundation |
-| **Release Notes** | Communicate shipped value | Market new features |
-| **FAQ/Help Center** | User education | SEO content |
-| **Demo Script** | Stakeholder alignment | Sales/marketing demos |
+| Command | Document | PM Use | Marketing Use |
+|---------|----------|--------|---------------|
+| `/product-brief` | Product Brief | Feature summary for stakeholders | Messaging foundation |
+| `/release-notes` | Release Notes | Communicate shipped value | Market new features |
+| `/faq-help-center` | FAQ/Help Center | User education | SEO content |
+| `/product-demo-script` | Demo Script | Stakeholder alignment | Sales/marketing demos |
 
 ## Document Creation Workflow
 
@@ -233,84 +179,61 @@ You'll be asked: **"Does this document meet your expectations? Should I save it?
 | Category | Save Folder | Example Documents |
 |----------|-------------|-------------------|
 | Project Management | `doc-assist/project-management/` | `project-charter.md`, `status-report.md` |
-| Product Strategy | `doc-assist/product-management/` | `product-vision.md`, `product-roadmap.md` |
-| Product Discovery | `doc-assist/product-management/` | `prd.md`, `user-personas.md` |
-| Product Research | `doc-assist/product-management/` | `market-research.md`, `user-research-report.md` |
-| Marketing Positioning | `doc-assist/marketing/` | `positioning-statement.md`, `messaging-framework.md` |
-| Marketing Content | `doc-assist/marketing/` | `content-strategy.md`, `campaign-brief.md` |
-| Marketing Launch | `doc-assist/marketing/` | `gtm-strategy.md`, `launch-checklist.md` |
-| Bridge Documents | `doc-assist/bridge/` | `product-brief.md`, `release-notes.md` |
-
-### Example Session
-
-```
-You: /project-management-docs Create a project charter for a website redesign
-
-Claude: I'll help you create a comprehensive Project Charter. Let me set up the
-directory structure and generate the document...
-
-[Creates doc-assist/project-management/ folder if needed]
-
-[Displays complete Project Charter in a code block]
-
-Does this document meet your expectations? Should I save it?
-
-You: Yes, save it
-
-Claude: Saved to `doc-assist/project-management/project-charter.md`
-```
+| Product Management | `doc-assist/product-management/` | `product-vision.md`, `prd.md`, `user-personas.md` |
+| Marketing | `doc-assist/marketing/` | `positioning-statement.md`, `gtm-strategy.md` |
+| Bridge | `doc-assist/bridge/` | `product-brief.md`, `release-notes.md` |
 
 ## Common Workflows
 
 ### Starting a New Project
 
 ```
-1. /project-management-docs → Project Charter (get authorization)
-2. /project-management-docs → Business Case (justify investment)
-3. /project-management-docs → Stakeholder Register (map people)
-4. /project-management-docs → WBS (break down work)
-5. /project-management-docs → Project Schedule (create timeline)
-6. /project-management-docs → Risk Register (identify risks)
-7. /project-management-docs → RACI Matrix (clarify roles)
+1. /project-charter - Get authorization
+2. /business-case - Justify investment
+3. /stakeholder-register - Map people
+4. /work-breakdown-structure - Break down work
+5. /project-schedule - Create timeline
+6. /risk-register - Identify risks
+7. /raci-matrix - Clarify roles
 ```
 
 ### Running a Project
 
 ```
 Weekly:
-- /project-management-docs → Status Report
-- /project-management-docs → Issue Log (update)
+- /status-report - Progress updates
+- /issue-log - Track problems
 
 As Needed:
-- /project-management-docs → Change Request
-- /project-management-docs → Risk Register (update)
+- /change-request - Modify scope
+- /risk-register - Update risks
 ```
 
 ### Closing a Project
 
 ```
-1. /project-management-docs → Lessons Learned
-2. /project-management-docs → Closure Report
+1. /lessons-learned - Document learnings
+2. /project-closure-report - Final documentation
 ```
 
 ### New Feature Launch
 
 ```
-1. /bridge-docs → Product Brief (align stakeholders)
-2. /pm-discovery-docs → PRD (define requirements)
-3. /marketing-positioning-docs → Positioning Statement
-4. /marketing-launch-docs → GTM Strategy
-5. /marketing-launch-docs → Launch Checklist
-6. /bridge-docs → Release Notes
+1. /product-brief - Align stakeholders
+2. /prd - Define requirements
+3. /positioning-statement - Define market position
+4. /gtm-strategy - Launch plan
+5. /launch-checklist - Readiness check
+6. /release-notes - Announce features
 ```
 
 ### Sales Enablement
 
 ```
-1. /marketing-launch-docs → Product Datasheet
-2. /marketing-content-docs → Competitor Battlecard
-3. /bridge-docs → Demo Script
-4. /marketing-launch-docs → Sales Enablement Kit
+1. /product-datasheet - Feature summary
+2. /competitor-battlecard - Competitive intel
+3. /product-demo-script - Demo guidance
+4. /sales-enablement-kit - Full sales kit
 ```
 
 ## By Role
@@ -318,43 +241,48 @@ As Needed:
 ### Project Manager
 
 **Most Used:**
-- `/project-management-docs` - All project documents
-
-**Daily/Weekly:**
-- Status Report, Issue Log, Risk Register updates
+- `/project-charter` - Authorization
+- `/status-report` - Progress updates
+- `/risk-register` - Risk tracking
+- `/issue-log` - Problem tracking
 
 ### Product Manager
 
 **Most Used:**
-- `/pm-discovery-docs` - PRD, User Stories
-- `/pm-strategy-docs` - Roadmap, OKRs
-- `/bridge-docs` - Product Brief, Release Notes
+- `/prd` - Feature specifications
+- `/product-roadmap` - Timeline & priorities
+- `/product-brief` - Feature summary
+- `/user-stories` - Requirements
 
 ### Product Marketing Manager
 
 **Most Used:**
-- `/marketing-positioning-docs` - Positioning, Messaging
-- `/marketing-launch-docs` - GTM Strategy, Datasheet
-- `/marketing-content-docs` - Case Study Brief
+- `/positioning-statement` - Market position
+- `/gtm-strategy` - Launch plan
+- `/messaging-framework` - Key messages
+- `/sales-enablement-kit` - Sales support
 
 ### Content Marketer
 
 **Most Used:**
-- `/marketing-content-docs` - Content Strategy, Campaign Brief
-- `/marketing-positioning-docs` - Brand Guidelines
+- `/content-strategy` - Content planning
+- `/campaign-brief` - Campaign planning
+- `/case-study-brief` - Customer stories
 
 ### Sales Enablement
 
 **Most Used:**
-- `/marketing-launch-docs` - Sales Enablement Kit, Datasheet
-- `/marketing-content-docs` - Competitor Battlecard
-- `/bridge-docs` - Demo Script
+- `/sales-enablement-kit` - Full kit
+- `/product-datasheet` - Feature summary
+- `/competitor-battlecard` - Competitive intel
+- `/product-demo-script` - Demo guidance
 
 ### UX Researcher
 
 **Most Used:**
-- `/pm-discovery-docs` - Personas, Journey Maps
-- `/pm-research-docs` - User Research Report
+- `/user-personas` - User archetypes
+- `/customer-journey-map` - Experience mapping
+- `/user-research-report` - Research findings
 
 ## Usage Examples
 
@@ -374,13 +302,13 @@ You: /docassist I need to track project risks
 
 Claude: For tracking risks, you'll want a Risk Register.
 Let me help you create one...
-[Guides through /project-management-docs]
+[Guides through /risk-register]
 ```
 
 ### Creating a Specific Document
 
 ```
-You: /project-management-docs Help me write a project charter for a website redesign
+You: /project-charter Help me write a project charter for a website redesign
 
 Claude: I'll help you create a comprehensive Project Charter. Let me start with the
 structure and guide you through each section...
@@ -409,25 +337,66 @@ Claude: Great question!
 
 ```
 doc-assist/
-├── README.md                    # This guide
-├── docassist/                   # Meta-skill (main entry point)
+├── README.md                      # This guide
+├── docassist/                     # Meta-skill (main entry point)
 │   └── SKILL.md
-├── project-management-docs/    # Project Management documents
-│   └── SKILL.md
-├── pm-strategy-docs/           # Vision, Strategy, Roadmap, OKRs
-│   └── SKILL.md
-├── pm-discovery-docs/          # PRD, User Stories, JTBD, Personas
-│   └── SKILL.md
-├── pm-research-docs/           # Market Research, User Research
-│   └── SKILL.md
-├── marketing-positioning-docs/ # Positioning, Messaging, Brand
-│   └── SKILL.md
-├── marketing-content-docs/     # Content Strategy, Campaigns
-│   └── SKILL.md
-├── marketing-launch-docs/      # GTM, Launch, Sales Enablement
-│   └── SKILL.md
-└── bridge-docs/                # Product Brief, Release Notes, FAQ
-    └── SKILL.md
+│
+├── Project Management Skills
+│   ├── project-charter/SKILL.md
+│   ├── business-case/SKILL.md
+│   ├── stakeholder-register/SKILL.md
+│   ├── work-breakdown-structure/SKILL.md
+│   ├── project-schedule/SKILL.md
+│   ├── risk-register/SKILL.md
+│   ├── raci-matrix/SKILL.md
+│   ├── communication-plan/SKILL.md
+│   ├── status-report/SKILL.md
+│   ├── issue-log/SKILL.md
+│   ├── change-request/SKILL.md
+│   ├── lessons-learned/SKILL.md
+│   └── project-closure-report/SKILL.md
+│
+├── Product Strategy Skills
+│   ├── product-vision/SKILL.md
+│   ├── product-strategy/SKILL.md
+│   ├── product-roadmap/SKILL.md
+│   └── okrs/SKILL.md
+│
+├── Product Discovery Skills
+│   ├── prd/SKILL.md
+│   ├── user-stories/SKILL.md
+│   ├── jobs-to-be-done/SKILL.md
+│   ├── user-personas/SKILL.md
+│   └── customer-journey-map/SKILL.md
+│
+├── Product Research Skills
+│   ├── market-research/SKILL.md
+│   ├── user-research-report/SKILL.md
+│   └── opportunity-assessment/SKILL.md
+│
+├── Marketing Positioning Skills
+│   ├── positioning-statement/SKILL.md
+│   ├── messaging-framework/SKILL.md
+│   ├── value-proposition-canvas/SKILL.md
+│   └── brand-guidelines/SKILL.md
+│
+├── Marketing Content Skills
+│   ├── content-strategy/SKILL.md
+│   ├── campaign-brief/SKILL.md
+│   ├── competitor-battlecard/SKILL.md
+│   └── case-study-brief/SKILL.md
+│
+├── Marketing Launch Skills
+│   ├── gtm-strategy/SKILL.md
+│   ├── launch-checklist/SKILL.md
+│   ├── product-datasheet/SKILL.md
+│   └── sales-enablement-kit/SKILL.md
+│
+└── Bridge Skills (Cross-Functional)
+    ├── product-brief/SKILL.md
+    ├── release-notes/SKILL.md
+    ├── faq-help-center/SKILL.md
+    └── product-demo-script/SKILL.md
 ```
 
 ## Contributing
