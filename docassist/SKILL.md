@@ -7,16 +7,78 @@ description: Your intelligent guide for creating Product Management, Marketing, 
 
 Your intelligent guide for choosing and creating the right business document.
 
-## How to Use
+<EXTREMELY-IMPORTANT>
+If you think there is even a 1% chance a document skill might apply to what you're doing, you ABSOLUTELY MUST invoke /docassist first.
 
-**Simply describe what you're trying to do and I'll guide you to the right document.**
+IF A DOCUMENT NEEDS TO BE CREATED, YOU DO NOT HAVE A CHOICE. USE THE RIGHT SKILL.
 
-Examples of what you can ask:
-- "I'm launching a new feature, what documents do I need?"
-- "Help me create a project charter"
-- "I need to define our product's market position"
-- "What's the best document for tracking project risks?"
-- "I'm doing user research, how should I document findings?"
+This is not negotiable. This is not optional. You cannot rationalize your way out of this.
+</EXTREMELY-IMPORTANT>
+
+## The Rule
+
+**Invoke /docassist BEFORE creating any business document.** Even a 1% chance you need a document means you should check. If you're unsure which document, use /docassist to find out.
+
+```dot
+digraph doc_flow {
+    "User mentions document need" [shape=doublecircle];
+    "Know exactly which document?" [shape=diamond];
+    "Invoke /docassist" [shape=box];
+    "Invoke specific document skill" [shape=box];
+    "Announce: 'Using [skill] to create [document]'" [shape=box];
+    "Follow document workflow" [shape=box];
+    "Document created" [shape=doublecircle];
+
+    "User mentions document need" -> "Know exactly which document?";
+    "Know exactly which document?" -> "Invoke specific document skill" [label="yes"];
+    "Know exactly which document?" -> "Invoke /docassist" [label="no or unsure"];
+    "Invoke /docassist" -> "Invoke specific document skill";
+    "Invoke specific document skill" -> "Announce: 'Using [skill] to create [document]'";
+    "Announce: 'Using [skill] to create [document]'" -> "Follow document workflow";
+    "Follow document workflow" -> "Document created";
+}
+```
+
+## Red Flags
+
+These thoughts mean STOP—you're rationalizing:
+
+| Thought | Reality |
+|---------|---------|
+| "I'll just write a quick status update" | Status Reports have structure. Use `/status-report`. |
+| "This PRD is simple, I don't need the skill" | Simple docs become complex. Use `/prd`. |
+| "I know what a project charter looks like" | Templates evolve. Use `/project-charter`. |
+| "Let me just draft something first" | Draft without structure = rework. Use the skill. |
+| "The user didn't specify a document type" | That's exactly when to use `/docassist`. |
+| "I'll figure out the format as I go" | Skills provide proven formats. Use them. |
+| "This is just a quick meeting summary" | That might be a Status Report or Lessons Learned. Check. |
+| "I remember the template from before" | Templates get updated. Use the current skill. |
+
+## When to Use /docassist vs Direct Skill Invocation
+
+### Use /docassist First When:
+- User asks "what document should I create?"
+- User describes a situation but doesn't name a document
+- You're unsure which document fits the need
+- Multiple documents could apply
+- User says "help me document this"
+- User asks about document differences ("PRD vs Product Brief?")
+
+### Go Directly to Specific Skill When:
+- User explicitly names the document: "Create a PRD for..."
+- Context makes it 100% clear which document is needed
+- User invokes the skill directly: "/risk-register"
+
+## Document Priority
+
+When multiple documents could apply, use this order:
+
+1. **Foundational documents first** (charters, strategies) - these set direction
+2. **Planning documents second** (roadmaps, WBS, schedules) - these define scope
+3. **Execution documents third** (status reports, issue logs) - these track progress
+4. **Closure documents last** (lessons learned, closure reports) - these capture learnings
+
+"I need to launch a feature" → Start with `/product-brief`, then `/prd`, then `/gtm-strategy`.
 
 ## Quick Decision Tree
 
@@ -208,10 +270,10 @@ What are you trying to do?
 
 ## Document Creation Workflow
 
-All skills follow a consistent workflow:
+All document skills follow this workflow. Do not skip steps.
 
 ### Step 1: Setup Directory Structure
-Each skill creates a `doc-assist/` folder if it doesn't exist:
+Create the `doc-assist/` folder structure if it doesn't exist:
 ```
 doc-assist/
 ├── project-management/
@@ -221,15 +283,17 @@ doc-assist/
 ```
 
 ### Step 2: Generate Document
-Using the appropriate template, the skill creates content based on your input.
+Using the skill's template, create content based on user input and context.
 
 ### Step 3: Preview for User
-The document is displayed for your review.
+Display the complete document in a code block for review.
 
 ### Step 4: Confirm and Save
-You'll be asked: "Does this document meet your expectations? Should I save it?"
+Ask: **"Does this document meet your expectations? Should I save it?"**
 
-**If confirmed:** Document is saved to the appropriate folder with kebab-case filename.
+**If confirmed:** Save to the appropriate folder with kebab-case filename.
+
+**If changes needed:** Iterate based on feedback, then repeat Step 3.
 
 ### Save Locations
 
@@ -240,10 +304,33 @@ You'll be asked: "Does this document meet your expectations? Should I save it?"
 | Marketing | `doc-assist/marketing/` |
 | Bridge | `doc-assist/bridge/` |
 
-## Quick Help
+## Examples
 
-**Just tell me what you're working on:**
-- "I need to write a [specific document]"
-- "I'm [doing something], what document should I use?"
-- "Help me with [business scenario]"
-- "What's the difference between [doc A] and [doc B]?"
+### Correct Usage
+
+```
+User: I need to track risks for my project
+You: I'll use /risk-register to create a Risk Register for tracking project risks.
+[Invokes skill, follows workflow]
+```
+
+```
+User: I'm not sure what document I need for launching a feature
+You: Let me help you find the right document with /docassist.
+[Uses decision tree to identify needed documents]
+Based on your launch phase, you need: /gtm-strategy, /positioning-statement, /launch-checklist
+```
+
+### Incorrect Usage (Don't Do This)
+
+```
+User: I need a status report
+You: Here's a quick status report template I'll write up...
+❌ WRONG - Should invoke /status-report skill
+```
+
+```
+User: Help me document this project
+You: What kind of documentation do you need?
+❌ WRONG - Should invoke /docassist to guide the discovery
+```
