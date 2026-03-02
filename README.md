@@ -1,8 +1,8 @@
 # Doc Assist
 
-> Your intelligent guide for creating Product Management and Marketing documents with Claude Code.
+> Your intelligent guide for creating Product Management, Marketing, and Project Management documents with Claude Code.
 
-A collection of Claude Code skills that help you create professional PM and Marketing documents with structured templates, best practices, and expert guidance.
+A collection of Claude Code skills that help you create professional documents with structured templates, best practices, and expert guidance.
 
 ## Quick Start
 
@@ -17,10 +17,10 @@ This is your main entry point. Use it when you need help choosing the right docu
 ### Examples
 
 ```
-/docassist I'm launching a new feature, what documents do I need?
-/docassist Help me create a PRD for a mobile app
-/docassist I need to define our market positioning
-/docassist What's the best document for quarterly planning?
+/docassist I'm starting a new project, what documents do I need?
+/docassist Help me create a project charter
+/docassist I need to write a status report
+/docassist What's the difference between a PRD and a Product Brief?
 ```
 
 ## Installation
@@ -29,7 +29,7 @@ This is your main entry point. Use it when you need help choosing the right docu
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/doc-assist.git
+git clone https://github.com/hashangit/doc-assist.git
 
 # Copy all skills to your Claude Code skills directory
 cp -r doc-assist/* ~/.claude/skills/
@@ -55,6 +55,12 @@ Add to your `~/.claude/settings.json`:
 |---------|---------|
 | `/docassist` | Main entry point - get help choosing the right document |
 
+### Project Management Commands
+
+| Command | Documents | When to Use |
+|---------|-----------|-------------|
+| `/project-management-docs` | Charter, Business Case, WBS, Schedule, Risk Register, RACI, Status Report, Issue Log, Change Request, Lessons Learned, Closure Report | Managing projects from initiation to closure |
+
 ### Product Management Commands
 
 | Command | Documents | When to Use |
@@ -78,6 +84,42 @@ Add to your `~/.claude/settings.json`:
 | `/bridge-docs` | Product Brief, Release Notes, FAQ, Demo Script | Documents for both PM & Marketing |
 
 ## Document Reference
+
+### Project Management Documents (`/project-management-docs`)
+
+#### Initiation Phase
+
+| Document | Purpose |
+|----------|---------|
+| **Project Charter** | Formal authorization, objectives, scope, stakeholders |
+| **Business Case** | Justification for the project, ROI analysis |
+| **Stakeholder Register** | Who's involved, roles, influence, communication needs |
+
+#### Planning Phase
+
+| Document | Purpose |
+|----------|---------|
+| **Work Breakdown Structure (WBS)** | Hierarchical decomposition of work |
+| **Project Schedule** | Timeline, dependencies, milestones |
+| **Budget** | Cost estimates, contingencies |
+| **Risk Register** | Risks, likelihood, impact, mitigation |
+| **RACI Matrix** | Who is Responsible, Accountable, Consulted, Informed |
+| **Communication Plan** | Who needs what info, when, how |
+
+#### Execution & Control Phase
+
+| Document | Purpose |
+|----------|---------|
+| **Status Report** | Regular progress updates |
+| **Issue Log** | Problems, ownership, resolution status |
+| **Change Request** | Formal requests to modify scope/schedule/budget |
+
+#### Closure Phase
+
+| Document | Purpose |
+|----------|---------|
+| **Lessons Learned** | What went well, what didn't, recommendations |
+| **Project Closure Report** | Final status, deliverables, handoff |
 
 ### Product Management Documents
 
@@ -150,6 +192,37 @@ Documents that serve both Product Management and Marketing:
 
 ## Common Workflows
 
+### Starting a New Project
+
+```
+1. /project-management-docs → Project Charter (get authorization)
+2. /project-management-docs → Business Case (justify investment)
+3. /project-management-docs → Stakeholder Register (map people)
+4. /project-management-docs → WBS (break down work)
+5. /project-management-docs → Project Schedule (create timeline)
+6. /project-management-docs → Risk Register (identify risks)
+7. /project-management-docs → RACI Matrix (clarify roles)
+```
+
+### Running a Project
+
+```
+Weekly:
+- /project-management-docs → Status Report
+- /project-management-docs → Issue Log (update)
+
+As Needed:
+- /project-management-docs → Change Request
+- /project-management-docs → Risk Register (update)
+```
+
+### Closing a Project
+
+```
+1. /project-management-docs → Lessons Learned
+2. /project-management-docs → Closure Report
+```
+
 ### New Feature Launch
 
 ```
@@ -161,16 +234,6 @@ Documents that serve both Product Management and Marketing:
 6. /bridge-docs → Release Notes
 ```
 
-### Market Entry
-
-```
-1. /pm-research-docs → Market Research
-2. /pm-research-docs → Opportunity Assessment
-3. /pm-strategy-docs → Product Vision
-4. /pm-strategy-docs → Product Strategy
-5. /marketing-positioning-docs → Positioning Statement
-```
-
 ### Sales Enablement
 
 ```
@@ -180,58 +243,15 @@ Documents that serve both Product Management and Marketing:
 4. /marketing-launch-docs → Sales Enablement Kit
 ```
 
-### User-Centered Design
-
-```
-1. /pm-discovery-docs → User Personas
-2. /pm-discovery-docs → JTBD
-3. /pm-discovery-docs → Customer Journey Map
-4. /pm-discovery-docs → PRD (with User Stories)
-```
-
-## Usage Examples
-
-### Getting Started
-
-```
-You: /docassist I'm a new PM, what documents should I know about?
-
-Claude: Welcome! Here are the essential documents every PM should know...
-[Provides guided overview]
-```
-
-### Choosing a Document
-
-```
-You: /docassist I need to convince leadership to invest in a new feature
-
-Claude: For building a business case, you'll want an Opportunity Assessment.
-Let me help you create one...
-[Guides through /pm-research-docs]
-```
-
-### Creating a Specific Document
-
-```
-You: /pm-discovery-docs Help me write a PRD for a mobile payment feature
-
-Claude: I'll help you create a comprehensive PRD. Let me start with the
-structure and guide you through each section...
-[Provides template and guidance]
-```
-
-### Understanding Document Differences
-
-```
-You: /docassist What's the difference between Product Vision and Product Strategy?
-
-Claude: Great question!
-- Product Vision: WHERE you're going (3-5 year aspiration)
-- Product Strategy: HOW you'll get there (competitive approach)
-[Detailed explanation]
-```
-
 ## By Role
+
+### Project Manager
+
+**Most Used:**
+- `/project-management-docs` - All project documents
+
+**Daily/Weekly:**
+- Status Report, Issue Log, Risk Register updates
 
 ### Product Manager
 
@@ -266,6 +286,48 @@ Claude: Great question!
 - `/pm-discovery-docs` - Personas, Journey Maps
 - `/pm-research-docs` - User Research Report
 
+## Usage Examples
+
+### Getting Started
+
+```
+You: /docassist I'm a new project manager, what documents should I know about?
+
+Claude: Welcome! Here are the essential documents every PM should know...
+[Provides guided overview of project management documents]
+```
+
+### Choosing a Document
+
+```
+You: /docassist I need to track project risks
+
+Claude: For tracking risks, you'll want a Risk Register.
+Let me help you create one...
+[Guides through /project-management-docs]
+```
+
+### Creating a Specific Document
+
+```
+You: /project-management-docs Help me write a project charter for a website redesign
+
+Claude: I'll help you create a comprehensive Project Charter. Let me start with the
+structure and guide you through each section...
+[Provides template and guidance]
+```
+
+### Understanding Document Differences
+
+```
+You: /docassist What's the difference between Project Charter and Business Case?
+
+Claude: Great question!
+- Project Charter: Authorization document that defines WHAT the project is
+- Business Case: Justification document that explains WHY we should do it
+[Detailed explanation]
+```
+
 ## Tips
 
 1. **Start with `/docassist`** when you're unsure which document you need
@@ -279,6 +341,8 @@ Claude: Great question!
 doc-assist/
 ├── README.md                    # This guide
 ├── docassist/                   # Meta-skill (main entry point)
+│   └── SKILL.md
+├── project-management-docs/    # Project Management documents
 │   └── SKILL.md
 ├── pm-strategy-docs/           # Vision, Strategy, Roadmap, OKRs
 │   └── SKILL.md

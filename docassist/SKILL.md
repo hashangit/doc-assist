@@ -1,11 +1,11 @@
 ---
 name: docassist
-description: Your intelligent guide for creating Product Management and Marketing documents. Use as the primary entry point via /docassist to get help choosing the right document, understanding what document fits your scenario, or navigating the document collection. Triggers on "which document", "what document should I use", "help me choose document", "document for [scenario]", or when unsure which document skill to use.
+description: Your intelligent guide for creating Product Management, Marketing, and Project Management documents. Use as the primary entry point via /docassist to get help choosing the right document, understanding what document fits your scenario, or navigating the document collection. Triggers on "which document", "what document should I use", "help me choose document", "document for [scenario]", or when unsure which document skill to use.
 ---
 
 # Doc Assist
 
-Your intelligent guide for choosing and creating the right PM or Marketing document.
+Your intelligent guide for choosing and creating the right business document.
 
 ## How to Use
 
@@ -13,9 +13,9 @@ Your intelligent guide for choosing and creating the right PM or Marketing docum
 
 Examples of what you can ask:
 - "I'm launching a new feature, what documents do I need?"
-- "Help me create a PRD"
+- "Help me create a project charter"
 - "I need to define our product's market position"
-- "What's the best document for quarterly planning?"
+- "What's the best document for tracking project risks?"
 - "I'm doing user research, how should I document findings?"
 
 ## Quick Decision Tree
@@ -23,7 +23,14 @@ Examples of what you can ask:
 ```
 What are you trying to do?
 
-├── Define long-term direction or goals?
+├── Manage a project (planning, execution, delivery)?
+│   └──→ Use /project-management-docs
+│       ├── Initiation: Charter, Business Case, Stakeholder Register
+│       ├── Planning: WBS, Schedule, Budget, Risk Register, RACI, Comm Plan
+│       ├── Execution: Status Report, Issue Log, Change Request
+│       └── Closure: Lessons Learned, Closure Report
+│
+├── Define long-term product direction or goals?
 │   └──→ Use /pm-strategy-docs
 │       ├── Vision (3-5 year direction)
 │       ├── Strategy (How to win)
@@ -75,6 +82,31 @@ What are you trying to do?
 
 ## By Scenario
 
+### "I'm starting a new project"
+| Phase | Document | Command |
+|-------|----------|---------|
+| Get authorization | Project Charter | `/project-management-docs` |
+| Justify investment | Business Case | `/project-management-docs` |
+| Map stakeholders | Stakeholder Register | `/project-management-docs` |
+| Break down work | WBS | `/project-management-docs` |
+| Create timeline | Project Schedule | `/project-management-docs` |
+| Identify risks | Risk Register | `/project-management-docs` |
+| Clarify roles | RACI Matrix | `/project-management-docs` |
+
+### "I'm running a project"
+| Need | Document | Command |
+|------|----------|---------|
+| Report progress | Status Report | `/project-management-docs` |
+| Track problems | Issue Log | `/project-management-docs` |
+| Request changes | Change Request | `/project-management-docs` |
+| Manage risks | Risk Register | `/project-management-docs` |
+
+### "I'm closing a project"
+| Need | Document | Command |
+|------|----------|---------|
+| Document learnings | Lessons Learned | `/project-management-docs` |
+| Final report | Closure Report | `/project-management-docs` |
+
 ### "I'm starting a new product/feature"
 | Stage | Document | Command |
 |-------|----------|---------|
@@ -95,35 +127,11 @@ What are you trying to do?
 | 2-4 weeks before | Launch Checklist | `/marketing-launch-docs` |
 | Launch day | Release Notes | `/bridge-docs` |
 
-### "I'm doing user/customer research"
-| Need | Document | Command |
-|------|----------|---------|
-| Create user archetypes | User Personas | `/pm-discovery-docs` |
-| Map user experience | Customer Journey Map | `/pm-discovery-docs` |
-| Understand motivation | JTBD | `/pm-discovery-docs` |
-| Document findings | User Research Report | `/pm-research-docs` |
-| Tell success story | Case Study Brief | `/marketing-content-docs` |
-
-### "I'm doing strategic planning"
-| Need | Document | Command |
-|------|----------|---------|
-| Set direction | Product Vision | `/pm-strategy-docs` |
-| Plan approach | Product Strategy | `/pm-strategy-docs` |
-| Set timeline | Product Roadmap | `/pm-strategy-docs` |
-| Set goals | OKRs | `/pm-strategy-docs` |
-
-### "I'm enabling sales"
-| Need | Document | Command |
-|------|----------|---------|
-| Product overview | Product Datasheet | `/marketing-launch-docs` |
-| Beat competitors | Competitor Battlecard | `/marketing-content-docs` |
-| Guide demos | Demo Script | `/bridge-docs` |
-| Full enablement | Sales Enablement Kit | `/marketing-launch-docs` |
-
 ## By Role
 
 | Role | Go-To Commands |
 |------|---------------|
+| **Project Manager** | `/project-management-docs` |
 | **Product Manager** | `/pm-strategy-docs`, `/pm-discovery-docs`, `/bridge-docs` |
 | **Product Marketing** | `/marketing-positioning-docs`, `/marketing-launch-docs` |
 | **Content Marketer** | `/marketing-content-docs` |
@@ -131,6 +139,15 @@ What are you trying to do?
 | **UX Researcher** | `/pm-discovery-docs`, `/pm-research-docs` |
 
 ## Document Reference
+
+### Project Management (`/project-management-docs`)
+
+| Phase | Documents |
+|-------|-----------|
+| **Initiation** | Charter, Business Case, Stakeholder Register |
+| **Planning** | WBS, Schedule, Budget, Risk Register, RACI, Communication Plan |
+| **Execution** | Status Report, Issue Log, Change Request |
+| **Closure** | Lessons Learned, Closure Report |
 
 ### Product Management
 
@@ -148,11 +165,14 @@ What are you trying to do?
 | `/marketing-content-docs` | Content Strategy, Campaign Brief, Battlecard, Case Study | Content & campaigns |
 | `/marketing-launch-docs` | GTM Strategy, Launch Checklist, Datasheet, Sales Kit | Launch execution |
 
-### Cross-Functional
+### Cross-Functional (`/bridge-docs`)
 
-| Skill | Documents | When to Use |
-|-------|-----------|-------------|
-| `/bridge-docs` | Product Brief, Release Notes, FAQ, Demo Script | Documents for both PM & Marketing |
+| Documents | PM Use | Marketing Use |
+|-----------|--------|---------------|
+| Product Brief | Stakeholder alignment | Messaging foundation |
+| Release Notes | Shipped value | Feature marketing |
+| FAQ/Help Center | User education | SEO content |
+| Demo Script | Stakeholder demos | Sales demos |
 
 ## Quick Help
 
