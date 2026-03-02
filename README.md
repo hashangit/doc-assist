@@ -47,13 +47,81 @@ Add to your `~/.claude/settings.json`:
 }
 ```
 
+## Document Creation Workflow
+
+Every document goes through a structured 5-stage workflow to ensure quality and fit:
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  1. DISCOVERY   │───▶│ 2. BRAINSTORMING │───▶│ 3. GENERATION   │
+│  /docassist     │    │  /doc-brainstorm │    │  /specific-skill│
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                                      │
+                                                      ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  5. SAVE        │◀───│ 4. HUMANIZATION  │◀───│ Document Ready  │
+│  .md file       │    │  (optional)      │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+### Stage 1: Document Discovery
+
+Use `/docassist` to identify the right document for your situation.
+
+- Browse the decision tree to find the right document type
+- Understand which documents apply to your scenario
+- Get recommendations based on your role or project phase
+
+### Stage 2: Requirements Gathering
+
+**`/doc-brainstorm` runs automatically** to understand your exact needs:
+
+- **Context** - What's the situation? What's at stake?
+- **Purpose** - What outcome do you want?
+- **Audience** - Who will read this? What do they care about?
+- **Scope** - How detailed? What's in/out?
+- **Specifics** - Names, dates, metrics, constraints
+
+You'll be asked one question at a time to refine the requirements.
+
+### Stage 3: Document Generation
+
+After confirming the approach, the specific document skill generates your document using proven templates.
+
+### Stage 4: Humanization (Optional)
+
+You'll be asked: **"Would you like me to humanize this document?"**
+
+If yes, the `document-humanizer` skill:
+- Makes the text sound natural and conversational
+- Removes AI-generated boilerplate
+- Adds human texture and thought flow
+- Ensures the document feels like a real person wrote it
+
+### Stage 5: Final Approval & Save
+
+Before saving: **"Does this document meet your expectations? Should I save it?"**
+
+- If yes → Saved to the appropriate folder
+- If no → Iterate based on feedback
+
+### Save Locations
+
+| Category | Folder |
+|----------|--------|
+| Project Management | `doc-assist/project-management/` |
+| Product Management | `doc-assist/product-management/` |
+| Marketing | `doc-assist/marketing/` |
+| Bridge | `doc-assist/bridge/` |
+
 ## Available Commands
 
-### Meta Command
+### Meta & Workflow Skills
 
 | Command | Purpose |
 |---------|---------|
 | `/docassist` | Main entry point - get help choosing the right document |
+| `/doc-brainstorm` | Requirements gathering - runs automatically before generation |
 
 ### Project Management Documents
 
@@ -135,53 +203,6 @@ Add to your `~/.claude/settings.json`:
 | `/release-notes` | Release Notes | Communicate shipped value | Market new features |
 | `/faq-help-center` | FAQ/Help Center | User education | SEO content |
 | `/product-demo-script` | Demo Script | Stakeholder alignment | Sales/marketing demos |
-
-## Document Creation Workflow
-
-When you use any skill in this collection to create a document, it follows a consistent workflow:
-
-### Step 1: Setup Directory Structure
-
-Each skill automatically creates a `doc-assist/` folder in your project root if it doesn't exist:
-
-```
-doc-assist/
-├── project-management/
-├── product-management/
-├── marketing/
-└── bridge/
-```
-
-### Step 2: Generate Document
-
-Using the appropriate template, the skill creates the requested document with content based on your input and context.
-
-### Step 3: Preview for User
-
-The complete document content is displayed in a code block for your review before saving.
-
-### Step 4: Confirm and Save
-
-You'll be asked: **"Does this document meet your expectations? Should I save it?"**
-
-**If confirmed:**
-- Document is saved to the appropriate category folder
-- Filenames use kebab-case (e.g., `product-brief.md`, `release-notes-v1.2.md`)
-- Save location is confirmed with you
-
-**If changes needed:**
-- The skill iterates on the content based on your feedback
-- Updated version is shown for review
-- Confirmation step repeats until you're satisfied
-
-### Save Locations by Document Category
-
-| Category | Save Folder | Example Documents |
-|----------|-------------|-------------------|
-| Project Management | `doc-assist/project-management/` | `project-charter.md`, `status-report.md` |
-| Product Management | `doc-assist/product-management/` | `product-vision.md`, `prd.md`, `user-personas.md` |
-| Marketing | `doc-assist/marketing/` | `positioning-statement.md`, `gtm-strategy.md` |
-| Bridge | `doc-assist/bridge/` | `product-brief.md`, `release-notes.md` |
 
 ## Common Workflows
 
@@ -286,52 +307,75 @@ As Needed:
 
 ## Usage Examples
 
-### Getting Started
+### Complete Document Creation Flow
 
 ```
-You: /docassist I'm a new project manager, what documents should I know about?
+You: /docassist I need a status report for my project
 
-Claude: Welcome! Here are the essential documents every PM should know...
-[Provides guided overview of project management documents]
+Claude: I'll help you create a status report. Let me first understand your specific needs.
+
+[Invokes /doc-brainstorm]
+
+Claude: What's the project name and current phase?
+You: Website redesign, we're in development phase
+
+Claude: Who's the primary audience for this status report?
+      a) Executive leadership (need high-level, business impact)
+      b) Engineering team (need technical details)
+      c) Mixed stakeholders (need balanced approach)
+You: c) Mixed stakeholders
+
+Claude: What reporting period does this cover?
+You: This week (March 1-7)
+
+Claude: Based on our conversation:
+- Document: Status Report
+- Project: Website redesign, development phase
+- Audience: Mixed stakeholders
+- Period: March 1-7
+I'll create a balanced status report. Does this sound right?
+You: Yes
+
+[Generates document using /status-report]
+
+Claude: [Shows complete status report]
+
+Would you like me to humanize this document? I can make it sound more natural.
+You: Yes
+
+[Applies humanizer]
+
+Claude: [Shows humanized version]
+
+Does this meet your expectations? Should I save it?
+You: Yes, save it
+
+Claude: Saved to doc-assist/project-management/status-report.md
 ```
 
-### Choosing a Document
+### Quick Document Request
 
 ```
-You: /docassist I need to track project risks
+You: /prd Create a PRD for a new user dashboard feature
 
-Claude: For tracking risks, you'll want a Risk Register.
-Let me help you create one...
-[Guides through /risk-register]
-```
+Claude: I'll help you create a PRD. First, let me understand your requirements.
 
-### Creating a Specific Document
+[Invokes /doc-brainstorm and asks targeted questions]
 
-```
-You: /project-charter Help me write a project charter for a website redesign
+[After confirmation, generates PRD]
 
-Claude: I'll help you create a comprehensive Project Charter. Let me start with the
-structure and guide you through each section...
-[Provides template and guidance]
-```
+[Offers humanization]
 
-### Understanding Document Differences
-
-```
-You: /docassist What's the difference between Project Charter and Business Case?
-
-Claude: Great question!
-- Project Charter: Authorization document that defines WHAT the project is
-- Business Case: Justification document that explains WHY we should do it
-[Detailed explanation]
+[Saves to doc-assist/product-management/prd.md]
 ```
 
 ## Tips
 
 1. **Start with `/docassist`** when you're unsure which document you need
-2. **Be specific** about your situation for better recommendations
-3. **Chain documents** - many workflows use multiple documents in sequence
-4. **Customize templates** - adapt structures to your organization's needs
+2. **Answer brainstorming questions thoughtfully** - they ensure the document fits your exact needs
+3. **Use humanization** for stakeholder-facing documents to make them feel more personal
+4. **Chain documents** - many workflows use multiple documents in sequence
+5. **Be specific** about your situation for better recommendations
 
 ## File Structure
 
@@ -339,6 +383,8 @@ Claude: Great question!
 doc-assist/
 ├── README.md                      # This guide
 ├── docassist/                     # Meta-skill (main entry point)
+│   └── SKILL.md
+├── doc-brainstorm/                # Requirements gathering skill
 │   └── SKILL.md
 │
 ├── Project Management Skills

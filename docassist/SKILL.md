@@ -19,25 +19,90 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 **Invoke /docassist BEFORE creating any business document.** Even a 1% chance you need a document means you should check. If you're unsure which document, use /docassist to find out.
 
+## Complete Document Creation Flow
+
 ```dot
 digraph doc_flow {
-    "User mentions document need" [shape=doublecircle];
-    "Know exactly which document?" [shape=diamond];
+    "User needs a document" [shape=doublecircle];
     "Invoke /docassist" [shape=box];
-    "Invoke specific document skill" [shape=box];
-    "Announce: 'Using [skill] to create [document]'" [shape=box];
-    "Follow document workflow" [shape=box];
-    "Document created" [shape=doublecircle];
+    "Know exact document type?" [shape=diamond];
+    "Use decision tree" [shape=box];
+    "Document identified" [shape=box];
+    "Invoke /doc-brainstorm" [shape=box];
+    "Gather requirements" [shape=box];
+    "Confirm approach" [shape=box];
+    "User approves approach?" [shape=diamond];
+    "Generate document" [shape=box];
+    "Show document" [shape=box];
+    "Humanize?" [shape=diamond];
+    "Apply humanizer skill" [shape=box];
+    "Final approval?" [shape=diamond];
+    "Save to .md file" [shape=doublecircle];
 
-    "User mentions document need" -> "Know exactly which document?";
-    "Know exactly which document?" -> "Invoke specific document skill" [label="yes"];
-    "Know exactly which document?" -> "Invoke /docassist" [label="no or unsure"];
-    "Invoke /docassist" -> "Invoke specific document skill";
-    "Invoke specific document skill" -> "Announce: 'Using [skill] to create [document]'";
-    "Announce: 'Using [skill] to create [document]'" -> "Follow document workflow";
-    "Follow document workflow" -> "Document created";
+    "User needs a document" -> "Invoke /docassist";
+    "Invoke /docassist" -> "Know exact document type?";
+    "Know exact document type?" -> "Document identified" [label="yes"];
+    "Know exact document type?" -> "Use decision tree" [label="no"];
+    "Use decision tree" -> "Document identified";
+    "Document identified" -> "Invoke /doc-brainstorm";
+    "Invoke /doc-brainstorm" -> "Gather requirements";
+    "Gather requirements" -> "Confirm approach";
+    "Confirm approach" -> "User approves approach?";
+    "User approves approach?" -> "Gather requirements" [label="no, revise"];
+    "User approves approach?" -> "Generate document" [label="yes"];
+    "Generate document" -> "Show document";
+    "Show document" -> "Humanize?";
+    "Humanize?" -> "Apply humanizer skill" [label="yes"];
+    "Humanize?" -> "Final approval?" [label="no"];
+    "Apply humanizer skill" -> "Final approval?";
+    "Final approval?" -> "Generate document" [label="no, revise"];
+    "Final approval?" -> "Save to .md file" [label="yes"];
 }
 ```
+
+## Workflow Stages
+
+### Stage 1: Document Discovery
+
+Use the decision tree below to identify the right document, or confirm if user already knows.
+
+### Stage 2: Requirements Gathering
+
+**ALWAYS invoke /doc-brainstorm after identifying the document.**
+
+The brainstorming skill will:
+- Understand context and situation
+- Identify purpose and desired outcomes
+- Define audience and their concerns
+- Clarify scope and depth
+- Gather specific details (names, dates, metrics)
+- Confirm approach before generation
+
+<HARD-GATE>
+Do NOT generate any document until /doc-brainstorm completes and user approves the approach.
+</HARD-GATE>
+
+### Stage 3: Document Generation
+
+After approval, invoke the specific document skill to generate content.
+
+### Stage 4: Humanization Offer
+
+After showing the generated document, always ask:
+
+> "Would you like me to humanize this document? I can make it sound more natural, less AI-generated, and more like something a real person wrote."
+
+**If yes:** Invoke `document-humanizer` skill to polish.
+
+### Stage 5: Final Approval & Save
+
+Before saving, always ask:
+
+> "Does this document meet your expectations? Should I save it?"
+
+**If confirmed:** Save to appropriate folder with kebab-case filename.
+
+**If changes needed:** Iterate based on feedback.
 
 ## Red Flags
 
@@ -53,6 +118,8 @@ These thoughts mean STOP—you're rationalizing:
 | "I'll figure out the format as I go" | Skills provide proven formats. Use them. |
 | "This is just a quick meeting summary" | That might be a Status Report or Lessons Learned. Check. |
 | "I remember the template from before" | Templates get updated. Use the current skill. |
+| "The user gave me all the info" | Info ≠ understanding. Use `/doc-brainstorm`. |
+| "I can skip brainstorming for simple docs" | Simple requests hide complex needs. Always discover. |
 
 ## When to Use /docassist vs Direct Skill Invocation
 
@@ -68,6 +135,8 @@ These thoughts mean STOP—you're rationalizing:
 - User explicitly names the document: "Create a PRD for..."
 - Context makes it 100% clear which document is needed
 - User invokes the skill directly: "/risk-register"
+
+**Note:** Even with direct invocation, /doc-brainstorm must run for requirements gathering.
 
 ## Document Priority
 
@@ -268,34 +337,7 @@ What are you trying to do?
 | `/faq-help-center` | FAQ/Help Center | User education |
 | `/product-demo-script` | Demo Script | Product demos |
 
-## Document Creation Workflow
-
-All document skills follow this workflow. Do not skip steps.
-
-### Step 1: Setup Directory Structure
-Create the `doc-assist/` folder structure if it doesn't exist:
-```
-doc-assist/
-├── project-management/
-├── product-management/
-├── marketing/
-└── bridge/
-```
-
-### Step 2: Generate Document
-Using the skill's template, create content based on user input and context.
-
-### Step 3: Preview for User
-Display the complete document in a code block for review.
-
-### Step 4: Confirm and Save
-Ask: **"Does this document meet your expectations? Should I save it?"**
-
-**If confirmed:** Save to the appropriate folder with kebab-case filename.
-
-**If changes needed:** Iterate based on feedback, then repeat Step 3.
-
-### Save Locations
+## Save Locations
 
 | Category | Folder |
 |----------|--------|
@@ -309,28 +351,42 @@ Ask: **"Does this document meet your expectations? Should I save it?"**
 ### Correct Usage
 
 ```
-User: I need to track risks for my project
-You: I'll use /risk-register to create a Risk Register for tracking project risks.
-[Invokes skill, follows workflow]
+User: I need a status report for my project
+You: I'll help you create a status report. Let me first understand your specific needs.
+[Invokes /doc-brainstorm to gather requirements]
+[After approval, invokes /status-report to generate]
+[Shows document]
+Would you like me to humanize this document?
+[If yes, applies humanizer]
+Does this meet your expectations? Should I save it?
+[Saves to doc-assist/project-management/status-report.md]
 ```
 
 ```
 User: I'm not sure what document I need for launching a feature
-You: Let me help you find the right document with /docassist.
+You: Let me help you find the right document.
 [Uses decision tree to identify needed documents]
-Based on your launch phase, you need: /gtm-strategy, /positioning-statement, /launch-checklist
+Based on your launch phase, you'll want to start with a GTM Strategy.
+[Invokes /doc-brainstorm for requirements gathering]
+[Continues with full workflow]
 ```
 
 ### Incorrect Usage (Don't Do This)
 
 ```
 User: I need a status report
-You: Here's a quick status report template I'll write up...
-❌ WRONG - Should invoke /status-report skill
+You: Here's a status report template...
+❌ WRONG - Skipped /doc-brainstorm requirements gathering
 ```
 
 ```
-User: Help me document this project
-You: What kind of documentation do you need?
-❌ WRONG - Should invoke /docassist to guide the discovery
+User: Create a PRD for my new feature
+You: [Generates PRD immediately]
+❌ WRONG - Must gather requirements first via /doc-brainstorm
+```
+
+```
+User: This looks good, save it
+You: [Saves without offering humanization]
+❌ WRONG - Must offer humanization before final save
 ```
