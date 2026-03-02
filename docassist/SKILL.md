@@ -174,6 +174,53 @@ What are you trying to do?
 | FAQ/Help Center | User education | SEO content |
 | Demo Script | Stakeholder demos | Sales demos |
 
+## Document Creation Workflow
+
+When creating documents, all skills in this collection follow a consistent workflow:
+
+### Step 1: Setup Directory Structure
+Each skill automatically creates a `doc-assist/` folder in the project root if it doesn't exist:
+
+```
+doc-assist/
+├── project-management/
+├── product-management/
+├── marketing/
+└── bridge/
+```
+
+### Step 2: Generate Document
+Using the appropriate template, the skill creates the requested document with content based on your input.
+
+### Step 3: Preview for User
+The complete document content is displayed in a code block for your review.
+
+### Step 4: Confirm and Save
+You'll be asked: "Does this document meet your expectations? Should I save it?"
+
+**If confirmed:**
+- Document is saved to the appropriate category folder (e.g., `doc-assist/project-management/project-charter.md`)
+- Filenames use kebab-case (e.g., `product-brief.md`, `release-notes-v1.2.md`)
+- Save location is confirmed with you
+
+**If changes needed:**
+- The skill iterates on the content based on your feedback
+- Updated version is shown
+- Confirmation step repeats
+
+### Save Locations by Category
+
+| Category | Save Folder | Example |
+|----------|-------------|---------|
+| Project Management | `doc-assist/project-management/` | `project-charter.md` |
+| Product Strategy | `doc-assist/product-management/` | `product-roadmap.md` |
+| Product Discovery | `doc-assist/product-management/` | `prd.md` |
+| Product Research | `doc-assist/product-management/` | `market-research.md` |
+| Marketing Positioning | `doc-assist/marketing/` | `positioning-statement.md` |
+| Marketing Content | `doc-assist/marketing/` | `campaign-brief.md` |
+| Marketing Launch | `doc-assist/marketing/` | `gtm-strategy.md` |
+| Bridge Documents | `doc-assist/bridge/` | `product-brief.md` |
+
 ## Quick Help
 
 **Just tell me what you're working on and I'll recommend the right document:**

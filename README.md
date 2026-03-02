@@ -190,6 +190,76 @@ Documents that serve both Product Management and Marketing:
 | **FAQ/Help Center** | User education | SEO content |
 | **Demo Script** | Stakeholder alignment | Sales/marketing demos |
 
+## Document Creation Workflow
+
+When you use any skill in this collection to create a document, it follows a consistent workflow:
+
+### Step 1: Setup Directory Structure
+
+Each skill automatically creates a `doc-assist/` folder in your project root if it doesn't exist:
+
+```
+doc-assist/
+├── project-management/
+├── product-management/
+├── marketing/
+└── bridge/
+```
+
+### Step 2: Generate Document
+
+Using the appropriate template, the skill creates the requested document with content based on your input and context.
+
+### Step 3: Preview for User
+
+The complete document content is displayed in a code block for your review before saving.
+
+### Step 4: Confirm and Save
+
+You'll be asked: **"Does this document meet your expectations? Should I save it?"**
+
+**If confirmed:**
+- Document is saved to the appropriate category folder
+- Filenames use kebab-case (e.g., `product-brief.md`, `release-notes-v1.2.md`)
+- Save location is confirmed with you
+
+**If changes needed:**
+- The skill iterates on the content based on your feedback
+- Updated version is shown for review
+- Confirmation step repeats until you're satisfied
+
+### Save Locations by Document Category
+
+| Category | Save Folder | Example Documents |
+|----------|-------------|-------------------|
+| Project Management | `doc-assist/project-management/` | `project-charter.md`, `status-report.md` |
+| Product Strategy | `doc-assist/product-management/` | `product-vision.md`, `product-roadmap.md` |
+| Product Discovery | `doc-assist/product-management/` | `prd.md`, `user-personas.md` |
+| Product Research | `doc-assist/product-management/` | `market-research.md`, `user-research-report.md` |
+| Marketing Positioning | `doc-assist/marketing/` | `positioning-statement.md`, `messaging-framework.md` |
+| Marketing Content | `doc-assist/marketing/` | `content-strategy.md`, `campaign-brief.md` |
+| Marketing Launch | `doc-assist/marketing/` | `gtm-strategy.md`, `launch-checklist.md` |
+| Bridge Documents | `doc-assist/bridge/` | `product-brief.md`, `release-notes.md` |
+
+### Example Session
+
+```
+You: /project-management-docs Create a project charter for a website redesign
+
+Claude: I'll help you create a comprehensive Project Charter. Let me set up the
+directory structure and generate the document...
+
+[Creates doc-assist/project-management/ folder if needed]
+
+[Displays complete Project Charter in a code block]
+
+Does this document meet your expectations? Should I save it?
+
+You: Yes, save it
+
+Claude: Saved to `doc-assist/project-management/project-charter.md`
+```
+
 ## Common Workflows
 
 ### Starting a New Project

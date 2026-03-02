@@ -7,6 +7,42 @@ description: Create Product Management research and validation documents includi
 
 Create research and validation documents that inform product decisions with data.
 
+## Document Creation Workflow
+
+Follow this workflow for every document creation request:
+
+### Step 1: Setup Directory Structure
+Create the doc-assist folder structure in the project root if it doesn't exist:
+
+```
+doc-assist/
+├── project-management/
+├── product-management/
+├── marketing/
+└── bridge/
+```
+
+Check if `doc-assist/` exists in the current working directory. If not, create it along with the required subdirectories.
+
+### Step 2: Generate Document
+Using the templates below, create the requested document with appropriate content based on user input and context.
+
+### Step 3: Preview for User
+Display the complete document content to the user in a code block for review.
+
+### Step 4: Confirm and Save
+Ask the user: "Does this document meet your expectations? Should I save it?"
+
+**If confirmed:**
+- Save to `doc-assist/product-management/{document-name}.md`
+- Use kebab-case for filenames (e.g., `market-research.md`, `user-research-report.md`)
+- Confirm the save location with the user
+
+**If changes needed:**
+- Iterate on the content based on feedback
+- Show updated version
+- Repeat confirmation step
+
 ## Document Types
 
 ### Market Research

@@ -7,6 +7,42 @@ description: Create Marketing positioning and messaging documents including Posi
 
 Create positioning and messaging documents that define how your product is perceived in the market.
 
+## Document Creation Workflow
+
+Follow this workflow for every document creation request:
+
+### Step 1: Setup Directory Structure
+Create the doc-assist folder structure in the project root if it doesn't exist:
+
+```
+doc-assist/
+├── project-management/
+├── product-management/
+├── marketing/
+└── bridge/
+```
+
+Check if `doc-assist/` exists in the current working directory. If not, create it along with the required subdirectories.
+
+### Step 2: Generate Document
+Using the templates below, create the requested document with appropriate content based on user input and context.
+
+### Step 3: Preview for User
+Display the complete document content to the user in a code block for review.
+
+### Step 4: Confirm and Save
+Ask the user: "Does this document meet your expectations? Should I save it?"
+
+**If confirmed:**
+- Save to `doc-assist/marketing/{document-name}.md`
+- Use kebab-case for filenames (e.g., `positioning-statement.md`, `messaging-framework.md`)
+- Confirm the save location with the user
+
+**If changes needed:**
+- Iterate on the content based on feedback
+- Show updated version
+- Repeat confirmation step
+
 ## Document Types
 
 ### Positioning Statement
